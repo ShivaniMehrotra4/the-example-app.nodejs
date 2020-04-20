@@ -20,7 +20,7 @@ pipeline {
 					}
 					steps {
 						sh 'curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -'
-                				sh 'sudo apt install nodejs'
+                				sh 'sudo apt install -y nodejs'
 					}
 				}
 			}
