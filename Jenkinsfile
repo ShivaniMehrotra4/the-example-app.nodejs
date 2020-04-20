@@ -6,7 +6,7 @@ pipeline {
 			parallel {
 				stage('Install on slave 1') {
 					agent {
-						label ubuntu-1
+						label 'ubuntu-1'
 					}
 					steps {
 						sh 'curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -'
@@ -16,7 +16,7 @@ pipeline {
 
 				stage('Install on slave 2') {
 					agent {
-						label ubuntu-2
+						label 'ubuntu-2'
 					}
 					steps {
 						sh 'curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -'
@@ -30,7 +30,7 @@ pipeline {
 			parallel {
 				stage('Install on slave 1') {
 					agent {
-						label ubuntu-1
+						label 'ubuntu-1'
 					}
 					steps {
 						sh 'npm install'
@@ -40,7 +40,7 @@ pipeline {
 
 				stage('Install on slave 2') {
 					agent {
-						label ubuntu-2
+						label 'ubuntu-2'
 					}
 					steps {
 						sh 'npm install'
