@@ -54,23 +54,6 @@ pipeline {
 			}
 		}
 
-		// stage('Build on slave 2') {
-		// 	agent {
-		// 		label
-		// 	}
-		// 	steps {
-		// 		sh 'npm install'
-		// 		echo 'Installed npm'
-		// 	}
-		// }
-
-
-		// stage("Proceed to production?") {
-  //           agent none
-  //           when { branch 'master' } 
-  //           steps { proceedTo('production') }
-  //       }
-
 		stage('Deliver') {
 			when { branch 'master' }
 
@@ -103,18 +86,6 @@ pipeline {
 		aborted {
 			echo 'I am executed only when the build is aborted/ stopped manually.'
 		}
+	}
 }
 
-// def proceedTo(environment) {
-//     def description = "Choose 'yes' if you want to deploy this build to " + 
-//         "the ${environment} environment"
-//     def proceed = 'no'
-//     timeout(time: 4, unit: 'HOURS') {
-//         proceed = input message: "Do you want to deploy the changes to ${environment}?",
-//             parameters: [choice(name: "Deploy to ${environment}", choices: "no\nyes",
-//                 description: description)]
-//         if (proceed == 'no') {
-//             error("User stopped pipeline execution")
-//         }
-//     }
-// }
