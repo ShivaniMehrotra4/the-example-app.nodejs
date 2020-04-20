@@ -27,7 +27,7 @@ pipeline {
 
 			steps {
             			input 'Proceed to Deploy'
-            			ok 'I Agree.'
+            			
                 		sh 'npm run start:dev'
                 		echo 'Deployed.'
             		}
