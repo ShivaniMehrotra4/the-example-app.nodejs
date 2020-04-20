@@ -6,64 +6,32 @@ pipeline {
     }
 
 	stages {
-		stage('Installation to run in parallel') {
-			parallel {
-				stage('Install on slave 1') {
-					agent {
-						label ubuntu
-					}
-					steps {
-						sh 'curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -'
+		stage('Install on slave 1') {
+			steps {
+				sh 'curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -'
                 		sh 'sudo apt install -y nodejs'
-					}
-				}
-
-				stage('Install on slave 2') {
-					agent {
-						label ubuntu
-					}
-					steps {
-						sh 'curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -'
-                		sh 'sudo apt install nodejs'
-					}
-				}
 			}
 		}
-
+				
+			
 		stage('npm install to run in parallel') {
-			parallel {
-				stage('Install on slave 1') {
-					agent {
-						label ubuntu
-					}
-					steps {
-						sh 'npm install'
-						echo 'Installed npm'
-					}
-				}
-
-				stage('Install on slave 2') {
-					agent {
-						label ubuntu
-					}
-					steps {
-						sh 'npm install'
-						echo 'Installed npm'
-					}
-				}
+			steps {
+				sh 'npm install'
+				echo 'Installed npm'
 			}
 		}
 
+				
 		stage('Deliver') {
 			when { branch 'master' }
 
 			steps {
-            	input 'Proceed to Deploy'
-            	ok 'I Agree.'
-                sh 'npm run start:dev'
-                echo 'Deployed.'
-            }
-        }
+            			input 'Proceed to Deploy'
+            			ok 'I Agree.'
+                		sh 'npm run start:dev'
+                		echo 'Deployed.'
+            		}
+        	}
 	
 	}
 
