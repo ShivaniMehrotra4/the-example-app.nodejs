@@ -1,5 +1,5 @@
 pipeline {
-	agent any 
+	agent { label 'master' } 
 	options {
         timeout(time: 1, unit: 'DAYS')
         retry(2)
