@@ -2,6 +2,7 @@ pipeline {
 	agent any 
 
 	stages {
+	
 		stage('Installation to run in parallel') {
 			parallel {
 				stage('Install on slave 1') {
@@ -57,7 +58,7 @@ pipeline {
             			input 'Proceed to Deploy'
             	
                			sh 'npm run start:dev'
-                		echo 'Deployed.'
+                		echo 'Deployed !!.'
             		}
         	}
 	
