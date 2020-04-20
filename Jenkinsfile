@@ -6,7 +6,7 @@ pipeline {
     }
 
 	stages {
-		stage('Install on slave 1') {
+		stage('Installation') {
 			steps {
 				sh 'curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -'
                 		sh 'sudo apt install -y nodejs'
