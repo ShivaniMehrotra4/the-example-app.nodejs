@@ -10,7 +10,7 @@ pipeline {
 					}
 					steps {
 						sh 'curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -'
-                		sh 'sudo apt install -y nodejs'
+                				sh 'sudo apt install -y nodejs'
 					}
 				}
 
@@ -20,7 +20,7 @@ pipeline {
 					}
 					steps {
 						sh 'curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -'
-                		sh 'sudo apt install nodejs'
+                				sh 'sudo apt install nodejs'
 					}
 				}
 			}
@@ -54,12 +54,12 @@ pipeline {
 			when { branch 'master' }
 
 			steps {
-            	input 'Proceed to Deploy'
+            			input 'Proceed to Deploy'
             	
-                sh 'npm run start:dev'
-                echo 'Deployed.'
-            }
-        }
+               			sh 'npm run start:dev'
+                		echo 'Deployed.'
+            		}
+        	}
 	
 	}
 
